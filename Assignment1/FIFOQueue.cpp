@@ -2,6 +2,7 @@
 #include "pcb_h.h"
 #include "FIFOQueue_h.h"
 #include <stdio.h>
+#include <string.h>
 #define EMPTY_QUEUE 1
 #define NO_ERROR 0
 
@@ -25,7 +26,7 @@ int FIFOq_enqueue(FIFOq *queue, Node *e) {
 		root->next_node = (Node*) malloc(sizeof(Node));
 		root->next_node = e;
 	}
-	printf("PCB ENQUEUE: %s",PCB_toString(e->init_pcb));
+	printf("PCB ENQUEUE: %s\n",PCB_toString(e->init_pcb));
 	return 0;
 }
 
@@ -57,7 +58,7 @@ char * FIFOq_toString(FIFOq *queue) {
 		Node *root = queue->node;
 		PCB_p p;
 		char content[255];
-		strcpy(content,"Q:Count=%d: ",queue->size);
+		sprintf(content,"Q:Count=%d: ",queue->size);
 		int i = 1;
 		printf("Q:Count=%d: ",queue->size);
 		while(root != NULL) {
@@ -73,7 +74,7 @@ char * FIFOq_toString(FIFOq *queue) {
 			root = root->next_node;
 			i = i + 1;
 		}
-		printf("* contents:%s",contents);
+		printf("* contents:%s",content);
 		return c;
 	}
 }

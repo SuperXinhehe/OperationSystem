@@ -1,5 +1,4 @@
 #include "FIFOQueue_h.h"
-#include "FIFOQueue.cpp"
 #include "READYQueue_h.h"
 #include <stdio.h>
 
@@ -16,7 +15,7 @@ void print_READYq(READYq *rq) {
 		printf("EMPTY QUEUE\n");
 	}
 	else {
-		for(int i = 0;i<rq->q->level_priority;i++) {
+		for(int i = 0;i<rq->q->priority_number;i++) {
 			// if the ith queue exist in priority queue print
 			if(!rq->q) {
 				printf("Q%d: %s\n",i,FIFOq_toString(rq->q->index[i]));
