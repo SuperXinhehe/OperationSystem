@@ -1,5 +1,4 @@
 #include "pcb_h.h"
-#include <queue>
 #ifndef FIFOQUEUE_H
 #define FIFOQUEUE_H
 
@@ -12,11 +11,11 @@ typedef struct Node {
 typedef struct FIFOq {
 	Node* node;
 	int size;
-	FIFOq(Node*);
+	FIFOq(Node* n): node(n),size(1) {}
 	FIFOq() : node(),size(0) {}
 } FIFOq;
 
-FIFOq::FIFOq(Node* node_): node(node_),size(1) {}
+// FIFOq::FIFOq(Node* node_): node(node_),size(1) {}
 
 bool FIFOq_is_empty(FIFOq);
 int FIFOq_enqueue(FIFOq,Node);

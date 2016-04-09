@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include "pcb_h.h"
+#include <time.h>
 #define NO_OBJECT_ERROR 1
 #define NO_ERROR 0
 
@@ -11,7 +12,6 @@ PCB_p PCB_construct (void) {
 
 void PCB_deconstruct(PCB_p raw_pcb) {
 	if(!raw_pcb) {
-		raw_pcb -> ~PCB();
 		free(raw_pcb);
 	}
 }
@@ -40,7 +40,7 @@ unsigned long PCB_get_pid (PCB_p raw_pcb) {
 }
 
 char * PCB_toString (PCB_p raw_pcb) {
-	char *c = new char[255];
+	char *c = (char*) malloc(sizeof(char)*255);
 	if(!raw_pcb) {
 		sprintf(c,"NO_OBJECT_ERROR");
 		return c;
