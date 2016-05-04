@@ -1,4 +1,3 @@
-// assignment 3
 #include <stdio.h>
 #include <stdlib.h>
 #include "pcb_h.h"
@@ -51,5 +50,3 @@ char * PCB_toString (PCB_p raw_pcb) {
 		return c;
 	}
 }
-
-int PCB_set_state (PCB_p raw_pcb, )
